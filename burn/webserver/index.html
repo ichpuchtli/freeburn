@@ -1,0 +1,77 @@
+<html>
+  <head>
+	<style>
+		#graph {width: 250px; height: 250px; text-align: center; margin: 10px; float:right; align: right; background-color:#999999;} 
+		#tracking {width: 500px; height: 500px; text-align: center; padding: 10px; float:left; align: left; background-color: #99CCFF;} 
+		#fiducual {width: 520px; height: 250px; text-align: center; margin: 10px; float:right; align: right; background-color: #CCCCCC;} 
+		#buttons {padding: 10px; text-align: center; width:500px; height: 500px; float:left; align: left; clear: left;}
+	</style>
+    <script language="javascript" type="text/javascript">
+	var jsonData; 
+	var jsonText;
+    function request(){
+                if (window.XMLHttpRequest) {
+                        xmlhttp = new XMLHttpRequest(); 
+                } else {
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            jsonText=xmlhttp.responseText;
+			jsonText = jsonText.substr(0, jsonData.length-2);
+			eval('jsonData = ' + jsonText + ' ');
+			document.getElementById('altgraph') = jsonData.altitude; 
+			document.getElementById('maggraph') = jsonData.mag; 
+			document.getElementById('distgraph') = jsonData.distance;
+			document.getElementById('speedgraph') = jsonData.speed; 
+        }
+    } 
+
+    xmlhttp.open("GET","json_data.shtml", true);
+    xmlhttp.send();
+
+}
+    </script>
+  </head>
+  <body bgcolor="#fffeec" text="black">
+  <div id="tracking">
+    <h3>Blimp Tacker </h3>
+  </div>
+  <div id="graph">
+    <h3>Magnetic North</h3>
+	<div id="northgraph"></div>
+  </div>
+  <div id="graph">
+    <h3>Estimated Speed</h3>
+	<div id="speedgraph"></div>
+  </div>
+  <div id="graph">
+    <h3>Altitude</h3>
+	<div id="altgraph"></div>
+  </div>
+  <div id="graph">
+    <h3>Relaitve Distance</h3>
+	<div id="distgraph"></div>
+  </div>
+  <div id="fiducual">
+	<h3>Fiducial Tracker</h3>
+	<img src="fiducial.png" width="100" height="100" id="ID0"/>
+	<img src="fiducial.png" width="100" height="100" id="ID1"/>
+	<img src="fiducial.png" width="100" height="100" id="ID2"/>
+	<img src="fiducial.png" width="100" height="100" id="ID3"/>
+	<p id="distmeasurement">Distance = </p>
+  </div>
+  <div id="buttons">
+    <form action="">
+		<button id="fwdCommand" type="button" onclick="request()">Fwd</button>
+		<button id="leftCommand" type="button" onclick="request('a')">Left</button>
+		<button id="rightCommand" type="button" onclick="request('d')">Right</button>
+		<button id="backCommand" type="button" onclick="request('s')">Back</button><br>
+		<button id="upCommand" type="button" onclick="request('+')">Up</button>
+		<button id="downCommand" type="button" onclick="request('-')">Down</button><br>
+		<button id="clearCommand" type="button" onclick="request('*')">Stop</button><br>
+	</form>
+  </div>
+  </body>
+</html>

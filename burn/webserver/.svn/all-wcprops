@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver
+END
+httpd-fs.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd-fs.h
+END
+Makefile.webserver
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/Makefile.webserver
+END
+http-strings.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/http-strings.c
+END
+makestrings
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/makestrings
+END
+webserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/webserver.h
+END
+http-strings.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/http-strings.h
+END
+makefsdata
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/makefsdata
+END
+httpd-cgi.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd-cgi.c
+END
+httpd-fsdata.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd-fsdata.c
+END
+httpd.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd.c
+END
+http-strings
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/http-strings
+END
+httpd-cgi.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd-cgi.h
+END
+httpd-fsdata.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd-fsdata.h
+END
+httpd.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd.h
+END
+httpd-fs.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repo/csse3010/!svn/ver/18/trunk/source/netduinoplus/uip/uip/apps/webserver/httpd-fs.c
+END

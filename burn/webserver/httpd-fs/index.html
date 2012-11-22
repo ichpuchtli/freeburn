@@ -1,0 +1,109 @@
+<html>
+  <head>
+	<style>
+		#graph {width: 150px; height: 150px; text-align: center; margin: 10px; float:right; align: right; background-color:#999999;} 
+		#tracking {width: 400px; height: 400px; text-align: center; padding: 10px; float:left; align: left; background-color: #99CCFF;} 
+		#fiducual {width: 320px; height: 200px; text-align: center; margin: 10px; float:right; align: right; background-color: #CCCCCC;} 
+		#buttons {padding: 10px; text-align: center; width:400px; height: 150px; float:left; align: left; clear: left;}
+	</style>
+    <script language="javascript" type="text/javascript">
+	var jsonData; 
+	var jsonText;
+	var posTable = new Array(0, 0, 0, 0, 0);
+	var magTable = new Array(0, 0, 0, 0, 0);
+	var distTable = new Array(0, 0, 0, 0, 0);
+	var speedTable = new Array(0, 0, 0, 0, 0);
+	var fiducialTable = new Array(0, 0, 0, 0, 0);
+	var altTable = new Array(0, 0, 0, 0, 0);
+	
+	function pushData(value, table, id) {
+		for (i=0;i<table.length;i++) {
+			if (table[i] == 0) {
+				table[i] = value; 
+				break;
+			}
+			if (i == table.length-1) {
+				table[4] = table[3];
+				table[3] = table[2];
+				table[2] = table[1];
+				table[1] = table[0];
+				table[0] = value;
+				break;
+			}
+		}
+		document.getElementById(id).innerHTML = table; 
+	
+	}
+	
+    function request(str1){
+                if (window.XMLHttpRequest) {
+                        xmlhttp = new XMLHttpRequest(); 
+                } else {
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            jsonText=xmlhttp.responseText;
+			jsonText = jsonText.substr(0, jsonData.length-2);
+			eval('jsonData = ' + jsonData + ' ');
+			pushData(jsonData.altitude, altTable, 'altgraph');
+			pushData(jsonData.mag, magTable, 'maggraph');
+			pushData(jsonData.speed, speedTable, 'speedtgraph');
+			pushData(jsonData.distance, distTable, 'distgraph');
+			pushData(jsonData.altitude, altTable, 'altgraph');
+			pushData(jsonData.angles, fiducialTable, 'fiducialgraph');
+        }
+    } 
+	xmlhttp.open("GET","index.html?" + str1, true);
+    xmlhttp.send();
+
+}
+    </script>
+  </head>
+  <body bgcolor="#fffeec" text="black">
+  <div id="tracking">
+    <h3>Blimp Tacker </h3>
+	<embed src="shark.svg" type="image/svg+xml" id="sharkman" /> 
+	<embed src="arrow.svg" type="image/svg+xml" id="arrowman" /> 
+	
+	<div id="xy">
+	</div>
+  </div>
+  <div id="graph">
+    <h3>Magnetic North</h3>
+	<div id="northgraph"></div>
+  </div>
+  <div id="graph">
+    <h3>Estimated Speed</h3>
+	<div id="speedgraph"></div>
+  </div>
+  <div id="graph">
+    <h3>Altitude</h3>
+	<div id="altgraph"></div>
+  </div>
+  <div id="graph">
+    <h3>Relative Distance</h3>
+	<div id="distgraph"></div>
+  </div>
+  <div id="fiducual">
+	<h3>Fiducial Tracker</h3>
+	<img src="fiducial.png" width="50" height="50" id="ID0"/>
+	<img src="fiducial.png" width="50" height="50" id="ID1"/>
+	<img src="fiducial.png" width="50" height="50" id="ID2"/>
+	<img src="fiducial.png" width="50" height="50" id="ID3"/>
+	<p id="fiducialgraph"> </p>
+  </div>
+  <div id="buttons">
+    <form action="">
+		<button id="fwdCommand" type="button" onclick="request('w')">Fwd</button>
+		<button id="leftCommand" type="button" onclick="request('a')">Left</button>
+		<button id="rightCommand" type="button" onclick="request('d')">Right</button>
+		<button id="backCommand" type="button" onclick="request('s')">Back</button><br>
+		<button id="upCommand" type="button" onclick="request('+')">Up</button>
+		<button id="downCommand" type="button" onclick="request('-')">Down</button><br>
+		<button id="clearCommand" type="button" onclick="request('*')">Stop</button><br>
+	</form>
+  </div>
+  </body>
+</html>
